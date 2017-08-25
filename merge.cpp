@@ -27,12 +27,14 @@ double calculate_cost_greedy(int num);
 int main()
 {
     int num;//the number of points
-    double ratio;
+    double hit_ratio;
     int total = 0;
     //cin >> total;
     int a, b;
     cin >> total >> a >> b;
     int hit = 0;
+    double delta_sum = 0;
+    double delta_average = 0;
     while (cin >> num) {
         for (int i = 0; i < num; i++)
         {
@@ -46,14 +48,17 @@ int main()
         }
         double result1 = calculate_cost_dp(num);
         double result2 = calculate_cost_greedy(num);
-        cout << (result1 == result2) << "\t" << result1 << "\t" << result2 << endl;
+        double delta = (result2 - result1) / result2 * 100;
+        delta_sum += delta;
+        cout << (result1 == result2) << "\t" << result1 << "\t" << result2 << "\t" << delta << "%" << endl;
         if (result1 == result2) {
             hit++;
         }
         v.clear();
     }
-    ratio = (double) hit / total;
-    cout << "hit:" << hit << ", total:" << total << ", ratio:" << ratio << endl;
+    hit_ratio = (double) hit / total;
+    delta_average = delta_sum / total;
+    cout << "num_of_points:" << num << ", hit:" << hit << ", total:" << total << ", hit_ratio:" << hit_ratio << ", delta_average:" << delta_average << "%" << endl;
     return 0;
 }
 
