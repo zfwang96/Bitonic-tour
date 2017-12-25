@@ -1,6 +1,6 @@
 /*
-Created by ÎÀêÅÑô
-Copyright  2017Äê ÎÀêÅÑô. All rights reserved.
+Created by å«æ˜±é˜³
+Copyright  2017å¹´ å«æ˜±é˜³. All rights reserved.
 */
 #include<iostream>
 #include<list>
@@ -14,7 +14,7 @@ struct point
 };
 list<int> circle;
 vector<point>v;
-int current_max;//µ±Ç°È¦ÖĞºá×ø±ê×î´óµÄµãµÄ±êºÅ
+int current_max;//å½“å‰åœˆä¸­æ¨ªåæ ‡æœ€å¤§çš„ç‚¹çš„æ ‡å·
 int main()
 {
 	int num;//the number of points
@@ -29,16 +29,16 @@ int main()
 		temp.x = temp_x;
 		temp.y = temp_y;
 		v.push_back(temp);
-	}//½«ËùÓĞµã´æÈëv£¬°´ºá×ø±ê´ÓĞ¡µ½´óÊäÈë
+	}//å°†æ‰€æœ‰ç‚¹å­˜å…¥vï¼ŒæŒ‰æ¨ªåæ ‡ä»å°åˆ°å¤§è¾“å…¥
 
 	circle.push_back(0);
 	circle.push_back(1);
 	circle.push_back(2);
 	circle.push_back(0);
 
-	current_max = 2;//³õÊ¼»¯È¦
+	current_max = 2;//åˆå§‹åŒ–åœˆ
 
-	for (int i = 3; i < num; i++)//µ±Ç°Ìí¼ÓµÄµãÎªv[i]
+	for (int i = 3; i < num; i++)//å½“å‰æ·»åŠ çš„ç‚¹ä¸ºv[i]
 	{
 		
 		list<int>::iterator it;
@@ -49,23 +49,23 @@ int main()
 			{
 				break;
 			}
-		}//itÖ¸ÕëÕÒµ½µ±Ç°ºá×ø±ê×î´óµÄµãÔÚlistÖĞµÄÎ»ÖÃ
-		double delta1, delta2;//ÆÆÈ¦ºóÔö¼ÓµÄÁ¿
+		}//itæŒ‡é’ˆæ‰¾åˆ°å½“å‰æ¨ªåæ ‡æœ€å¤§çš„ç‚¹åœ¨listä¸­çš„ä½ç½®
+		double delta1, delta2;//ç ´åœˆåå¢åŠ çš„é‡
 		int L = *it;
 		int M = *(++it);
 		it--;
 		int N = *(--it);
 		it++;
-		//¶ÔitºÍ(it-1)½øĞĞ¼ÆËã
+		//å¯¹itå’Œ(it-1)è¿›è¡Œè®¡ç®—
 		double first1 = sqrt((v[i].x - v[L].x)*(v[i].x - v[L].x) + (v[i].y - v[L].y)*(v[i].y - v[L].y)) + sqrt((v[i].x - v[M].x)*(v[i].x - v[M].x) + (v[i].y - v[M].y)*(v[i].y - v[M].y));
 		double second1 = sqrt((v[L].x-v[M].x)*(v[L].x - v[M].x)+(v[L].y-v[M].y)*(v[L].y - v[M].y));
 		delta1 = first1 - second1;
-		//¶ÔitºÍ(it+1)½øĞĞ¼ÆËã
+		//å¯¹itå’Œ(it+1)è¿›è¡Œè®¡ç®—
 		double first2 = sqrt((v[i].x - v[L].x)*(v[i].x - v[L].x) + (v[i].y - v[L].y)*(v[i].y - v[L].y)) + sqrt((v[i].x - v[N].x)*(v[i].x - v[N].x) + (v[i].y - v[N].y)*(v[i].y - v[N].y));
 		double second2 = sqrt((v[L].x - v[N].x)*(v[L].x - v[N].x) + (v[L].y - v[N].y)*(v[L].y - v[N].y));
 		delta2 = first2 - second2;
 		
-		if (delta1 > delta2)//Ñ¡delta2
+		if (delta1 > delta2)//é€‰delta2
 		{
 			circle.insert(it,i);
 		}
